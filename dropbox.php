@@ -12,7 +12,7 @@
 <body>
 	<section class="container main">
 		<form onSubmit="return uploadFile()">
-			<input type="text" id="numeroSiniestro" placeholder="Numero de siniestro" required="true" enabled="false" value="<?php echo $_GET['id']; ?> />
+			<input type="text" id="numeroSiniestro" placeholder="Numero de siniestro" required="true" enabled="false" value="<?php echo $_GET['id']; ?>" />
 			<input type="file" id="file-upload" required="true" accept="image/*"/>
 			<button class="btn waves-effect waves-light" type="submit" name="action">Enviar foto</button>
 		</form>
