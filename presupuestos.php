@@ -22,5 +22,5 @@ class Presupuesto{
 
 $presupuesto = new Presupuesto();
 $consulta = file_get_contents('php://input');
-header("Contet-Type:application/json");
+header("Content-type: application/json; charset=utf-8");
 echo $presupuesto->getPresupuesto($consulta);
