@@ -6,10 +6,9 @@ class Presupuesto{
 		//$jsonARetornar['token']= $consulta['token'];
 		$total = 0;
 		foreach ($consulta['objetos'] as $item){
-			$itemARetornar = $item;
-			$itemARetornar['precioUnitario'] = $this->getRandom();
-			$itemARetornar['subtotal'] = number_format($itemARetornar['precioUnitario']*$itemARetornar['cantidad'],2,".","");
-			$total += $itemARetornar['subtotal'];
+			$precio = $this->getRandom();
+			$itemARetornar = ["$item[id]" => ["precioUnitario"=>$precio, "subtotal" = number_format($precio*$item['cantidad'], 2, ".", "")]];
+			$total += $itemARetornar["$item[id]"]['subtotal'];
 			array_push($jsonARetornar['objetos'], $itemARetornar);
 		}
 		$jsonARetornar['total'] = number_format($total,2,".","");;
