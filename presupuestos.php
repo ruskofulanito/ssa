@@ -7,8 +7,9 @@ class Presupuesto{
 		$total = 0;
 		foreach ($consulta['objetos'] as $item){
 			$precio = $this->getRandom();
-			$itemARetornar = ["$item[id]" => ["precioUnitario"=>$precio, "subtotal" => number_format($precio*$item['cantidad'], 2, ".", "")]];
-			$total += $itemARetornar["$item[id]"]['subtotal'];
+			$subtotal = number_format($precio*$item['cantidad'], 2, ".", "");
+			$itemARetornar = ["id"=>$item[id], "precioUnitario"=>$precio, "subtotal" => $subtotal];
+			$total += $subtotal
 			array_push($jsonARetornar['objetos'], $itemARetornar);
 		}
 		$jsonARetornar['total'] = number_format($total,2,".","");;
